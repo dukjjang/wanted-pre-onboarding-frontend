@@ -26,6 +26,7 @@ const Auth = () => {
       localStorage.setItem('token', JSON.stringify(token));
       if (signFormStatus === 'signin') navigate('/todo');
       if (signFormStatus === 'signup') handleChangeForm();
+      window.location.reload();
     } catch (err) {
       alert(`${title} 요청이 실패하였습니다.`);
     }

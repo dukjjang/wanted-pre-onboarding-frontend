@@ -5,7 +5,8 @@ export const useRedirect = () => {
   const navigate = useNavigate();
   const isToken = localStorage.getItem('token');
   useEffect(() => {
-    if (isToken) navigate('/todo');
-    else navigate('/');
+    if (isToken) {
+      navigate('/todo');
+    } else navigate('/');
   }, []);
 };
