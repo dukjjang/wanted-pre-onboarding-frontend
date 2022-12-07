@@ -37,7 +37,7 @@ const FormInput = (props: Props) => {
         <h1 className='mb-2'>{title}</h1>
         <input
           id={id}
-          className='peer pl-2 mr-2 inline w-56 md:w-72 font-light mb-2 outline-0 pl-3shadow-md h-10 rounded border-b-2'
+          className='peer pl-2 mr-2 inline w-[270px] md:w-72 font-light mb-2 outline-0 pl-3shadow-md h-10 rounded border-b-2'
           {...inputProps}
           onChange={onChange}
           onBlur={handleFocus}

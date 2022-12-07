@@ -44,10 +44,10 @@ const Auth = () => {
   };
 
   return (
-    <main className='w-full px-6 flex justify-center h-screen bg-#ebebeb'>
+    <main className='w-full sm:px-6 flex justify-center h-screen bg-#ebebeb'>
       <form
         onSubmit={handleSubmit}
-        className='w-full sm:w-[400px] h-[550px] border rounded-lg mt-16 py-10 px-10'
+        className='w-full h-full flex-col flex justify-center sm:justify-start items-center sm:w-[400px] sm:h-[550px] border rounded-lg sm:mt-20 py-10 px-10'
       >
         <h1 className=' text-center text-[50px] mb-5'>{title}</h1>
         {inputs.map((input) => {
