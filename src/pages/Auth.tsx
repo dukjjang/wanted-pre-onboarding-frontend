@@ -21,12 +21,13 @@ const Auth = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const token = await postSignUp(signFormStatus, userValues);
+      const res = await postSignUp(signFormStatus, userValues);
+      const token = res.access_token;
       localStorage.setItem('token', JSON.stringify(token));
       navigate('/todo');
     } catch (err) {
       console.log(err);
-      alert('로그인에 실패하였습니다.');
+      alert(`${title} 요청이 실패하였습니다.`);
     }
   };
 
