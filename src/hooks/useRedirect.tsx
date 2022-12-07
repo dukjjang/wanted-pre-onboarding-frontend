@@ -3,9 +3,9 @@ import { useEffect } from 'react';
 
 export const useRedirect = () => {
   const navigate = useNavigate();
-  const isToken = localStorage.getItem('token') || '';
+  const isToken = localStorage.getItem('token');
   useEffect(() => {
-    if (isToken.length > 0) navigate('/todo');
+    if (isToken) navigate('/todo');
     else navigate('/');
   }, []);
 };

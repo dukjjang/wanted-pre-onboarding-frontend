@@ -24,9 +24,9 @@ const Auth = () => {
       const res = await postSignUp(signFormStatus, userValues);
       const token = res.access_token;
       localStorage.setItem('token', JSON.stringify(token));
-      navigate('/todo');
+      if (signFormStatus === 'signin') navigate('/todo');
+      if (signFormStatus === 'signup') handleChangeForm();
     } catch (err) {
-      console.log(err);
       alert(`${title} 요청이 실패하였습니다.`);
     }
   };
@@ -35,6 +35,11 @@ const Auth = () => {
     setUserValues((prev) => {
       return { ...prev, [e.target.name]: e.target.value };
     });
+  };
+  const handleChangeForm = () => {
+    setSignFormStatus(signFormStatus === 'signin' ? 'signup' : 'signin');
+    setFocused(false);
+    setUserValues({ email: '', password: '' });
   };
 
   return (
@@ -65,14 +70,7 @@ const Auth = () => {
               ? '계정이 없으신가요?'
               : '계정이 있으신가요?'}
           </p>
-          <span
-            onClick={() =>
-              setSignFormStatus(
-                signFormStatus === 'signin' ? 'signup' : 'signin'
-              )
-            }
-            className='font-bold cursor-pointer'
-          >
+          <span onClick={handleChangeForm} className='font-bold cursor-pointer'>
             {signFormStatus === 'signin' ? 'SignUp' : 'Login'}
           </span>
         </div>
