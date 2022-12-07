@@ -1,7 +1,7 @@
 import React, { FocusEvent } from 'react';
 import { BsCheckCircleFill } from 'react-icons/bs';
 
-export interface Props {
+interface Props {
   id: string;
   name: string;
   type: string;
@@ -36,7 +36,6 @@ const FormInput = (props: Props) => {
       <label className='mb-1' htmlFor={id}>
         <h1 className='mb-2'>{title}</h1>
         <input
-          autoFocus={inputProps.name === 'email' && true}
           id={id}
           className='peer pl-2 mr-2 inline w-56 md:w-72 font-light mb-2 outline-0 pl-3shadow-md h-10 rounded border-b-2'
           {...inputProps}
