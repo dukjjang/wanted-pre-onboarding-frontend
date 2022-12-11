@@ -8,4 +8,4 @@
 
 ### 배포링크
 
-<a href="https://wanted-pre-onboarding-frontend-navy.vercel.app/">"https://wanted-pre-onboarding-frontend-navy.vercel.app/"</a>
+<a href="https://wanted-pre-onboarding-frontend-navy.vercel.app/">https://wanted-pre-onboarding-frontend-navy.vercel.app/</a>
