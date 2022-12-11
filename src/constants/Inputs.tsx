@@ -1,4 +1,13 @@
-export const inputs = [
+interface Inputs {
+  [key: string]: string | boolean;
+  id: string;
+  name: string;
+  type: string;
+  placeholder: string;
+  errorMessage: string;
+  required: boolean;
+}
+export const inputs: Inputs[] = [
   {
     id: 'email',
     name: 'email',

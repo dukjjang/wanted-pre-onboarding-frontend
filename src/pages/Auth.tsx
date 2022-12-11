@@ -3,10 +3,12 @@ import { useNavigate } from 'react-router-dom';
 
 import FormInput from 'components/FormInput';
 import { UserValues } from 'types';
-import { postSignUp } from 'apis';
+import { postSignUp } from 'apis/request';
 import { inputs } from '../constants/Inputs';
 
 const Auth = () => {
+  const navigate = useNavigate();
+
   const [signFormStatus, setSignFormStatus] = useState<'signin' | 'signup'>(
     'signin'
   );
@@ -15,23 +17,23 @@ const Auth = () => {
     email: '',
     password: '',
   });
+
   const title = signFormStatus === `signin` ? 'Login' : 'SignUp';
-  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     try {
       const res = await postSignUp(signFormStatus, userValues);
       const token = res.access_token;
-      localStorage.setItem('token', JSON.stringify(token));
+      localStorage.setItem('token', token);
+
       if (signFormStatus === 'signin') navigate('/todo');
       if (signFormStatus === 'signup') handleChangeForm();
-      window.location.reload();
     } catch (err) {
       alert(`${title} 요청이 실패하였습니다.`);
     }
   };
-
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUserValues((prev) => {
       return { ...prev, [e.target.name]: e.target.value };
