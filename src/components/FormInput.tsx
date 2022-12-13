@@ -1,5 +1,5 @@
-import React, { FocusEvent } from 'react';
-import { BsCheckCircleFill } from 'react-icons/bs';
+import React from "react";
+import { BsCheckCircleFill } from "react-icons/bs";
 
 interface Props {
   id: string;
@@ -25,19 +25,19 @@ const FormInput = (props: Props) => {
     ...inputProps
   } = props;
 
-  const handleFocus = (e: FocusEvent<HTMLInputElement>) => {
+  const handleFocus = () => {
     setFocused(true);
   };
 
   const title = props.name.replace(/^[a-z]/, (char) => char.toUpperCase());
 
   return (
-    <div className='w-full flex flex-col justify-center items-start mb-2'>
-      <label className='mb-1' htmlFor={id}>
-        <h1 className='mb-2'>{title}</h1>
+    <div className="w-full flex flex-col justify-center items-start mb-2">
+      <label className="mb-1" htmlFor={id}>
+        <h1 className="mb-2">{title}</h1>
         <input
           id={id}
-          className='peer pl-2 mr-2 inline w-[270px] md:w-72 font-light mb-2 outline-0 pl-3shadow-md h-10 rounded border-b-2'
+          className="peer pl-2 mr-2 inline w-[270px] md:w-72 font-light mb-2 outline-0 pl-3shadow-md h-10 rounded border-b-2"
           {...inputProps}
           onChange={onChange}
           onBlur={handleFocus}
@@ -45,12 +45,12 @@ const FormInput = (props: Props) => {
           value={value}
         />
         <BsCheckCircleFill
-          className='inline peer-invalid:invisible visible text-green-500'
+          className="inline peer-invalid:invisible visible text-green-500"
           size={20}
         />
         <span
           className={`${
-            focused && 'peer-invalid:visible'
+            focused && "peer-invalid:visible"
           } text-red-400 text-sm mb-2 block invisible `}
         >
           {errorMessage}

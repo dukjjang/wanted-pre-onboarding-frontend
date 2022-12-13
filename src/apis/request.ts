@@ -1,4 +1,4 @@
-import { Todo, UserValues } from "../types/index";
+import { UserValues } from "../types/index";
 import axios from "../axios/axios";
 
 export const postSignUp = async (endpoint: string, userValues: UserValues) => {
