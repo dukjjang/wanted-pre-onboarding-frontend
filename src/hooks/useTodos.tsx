@@ -1,6 +1,6 @@
 import { getTodosRequest } from "apis/request";
 import { useEffect, useState } from "react";
-import { Todo, Todos } from "../types/index";
+import { Todo } from "../types/index";
 
 export const useTodos = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -15,14 +15,15 @@ export const useTodos = () => {
     const target = todos.filter((todo) => {
       return newTodo.id === todo.id;
     });
+
     if (!target.length) {
       setTodos((prev: Todo[]) => {
         return [...prev, newTodo];
       });
     }
+
     if (target.length) {
       const findIndex = todos.findIndex((todo) => todo.id === newTodo.id);
-
       let copiedTodos = [...todos];
 
       copiedTodos[findIndex].todo = newTodo.todo;

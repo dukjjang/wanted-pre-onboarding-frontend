@@ -11,6 +11,7 @@ const Layout: React.FC<Props> = ({ children }) => {
     localStorage.removeItem('token');
     navigate('/');
   };
+
   const isLogin = localStorage.getItem('token');
   return (
     <div className='w-full h-full '>

@@ -8,7 +8,6 @@ import { inputs } from "../constants/Inputs";
 
 const Auth = () => {
   const navigate = useNavigate();
-
   const [signFormStatus, setSignFormStatus] = useState<"signin" | "signup">(
     "signin"
   );
@@ -34,9 +33,7 @@ const Auth = () => {
   };
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setUserValues((prev) => {
-      return { ...prev, [e.target.name]: e.target.value };
-    });
+    setUserValues((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const handleChangeFormStatus = () => {
