@@ -62,7 +62,6 @@ const TodoItem = ({ todoItem, mutateTodos, mutateDelete }: Props) => {
             삭제
           </button>
         )}
-
         <button className="bg-green-300 rounded p-1" onClick={handleEditMode}>
           {isEditMode ? "제출" : "수정"}
         </button>
